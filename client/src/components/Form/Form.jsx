@@ -63,7 +63,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={e => handleTextInput(e.target.name, e.target.value)} />
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={e => handleTextInput(e.target.name, e.target.value)} />
         <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={e => handleTextInput(e.target.name, e.target.value)} />
-        <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags} onChange={e => handleTextInput(e.target.name, e.target.value)} />
+        <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags} onChange={e => handleTextInput(e.target.name, e.target.value.split(','))} />
 
         <div className={classes.fileInput}>
           <FileBase 
