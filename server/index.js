@@ -5,7 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 // ROUTES
-import postRouter from './routes/posts';
+import postRouter from './routes/posts.js';
+
+const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 const app = express();
@@ -14,13 +16,11 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());
 
-app.use('/posts', postRouter);
-
 app.get('/', (req, res) => {
   res.send('Hello to my Memories API');
 })
 
-const PORT = process.env.PORT || 5000;
+app.use('/posts', postRouter);
 
 mongoose
   .connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
